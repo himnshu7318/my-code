@@ -1,0 +1,28 @@
+class bubbleSort:
+    def __init__(self,arr):
+        self.arr=arr
+        self.length=len(arr)
+    def __str__(self):
+        return " ".join([str(x)for x in self.arr])
+    def bubblesorrecursive(self,n=None):
+        if n is None:
+            n=self.length
+        count = 0
+        if n==1:
+            return
+        for i in range(n-1):
+            if self.arr[i]>self.arr[i+1]:
+                self.arr[i],self.arr[i+1]=self.arr[i+1],self.arr[i]
+                count=count+1 
+        if(count==0):
+            return
+        self.bubblesorrecursive(n-1)
+        
+def main():
+    arr = [23,34,12,65,32,27,2,9]
+    sort =bubbleSort(arr)
+    sort.bubblesorrecursive()
+    print("sorted array : \n",sort)
+if __name__=="__main__":
+    main()
+        
