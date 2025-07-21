@@ -1,0 +1,25 @@
+class single:
+    def __init__(self,val,next=None):
+        self.val=val
+        self.next=next
+    def __str__(self):
+        return str(self.val)
+def print_list(head):
+    while head:
+        print(head.val,end=" ")
+        head=head.next
+    print(None)
+head = single(1)
+A=single(3)
+B=single(4)
+c=single(7)
+head.next=A 
+A.next=B 
+B.next=c 
+print_list(head)
+def reverse(head):
+    if not head:
+        return
+    reverse(head.next)
+    print(head, end=" ")
+reverse(head)
