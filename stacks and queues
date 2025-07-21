@@ -1,0 +1,23 @@
+#stack  last in first out[LIFO]
+stk = []
+stk.append(3)
+stk.append(5)
+stk.append(6)
+print(stk)
+x= stk.pop()
+print(x)
+print(stk)
+
+
+#queues first in first out[FIFO]
+
+from collections import deque
+q = deque()
+print(q)
+q.append(7)
+q.append(9)
+print(q)
+q.popleft()
+print(q[0])
+print(q)
+
