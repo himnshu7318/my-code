@@ -1,0 +1,73 @@
+class tree:
+    def __init__(self,val,left=None,right=None):
+        self.val=val
+        self.left=left
+        self.right=right
+    def __str__(self):
+        return str(self.val)
+ 
+            
+a=tree(1)
+b=tree(3)
+c=tree(5)
+d=tree(7)
+e=tree(9)
+f=tree(8)
+a.left=b 
+a.right=c 
+b.left=d 
+b.right =e 
+c.left=f 
+
+def pre_order(node):
+    if not node:
+        return 
+    print(node)
+    pre_order(node.left)
+    pre_order(node.right)
+pre_order(a)
+def in_order(node):
+    if not node:
+        return
+    in_order(node.left)
+    print(node)
+    in_order(node.right)
+in_order(a)
+def post_order(node):
+    if not node:
+        return
+    post_order(node.left)
+    post_order(node.right)
+    print(node)
+post_order(a)
+
+
+def pre_order_itr(node):
+    stk=[node]
+    while stk:
+        node=stk.pop()
+        print(node)
+        if node.right:stk.append(node.right)
+        if node.left:stk.append(node.left)
+pre_order_itr(a)
+
+from collections import deque
+def level_order(node):
+    q= deque()
+    q.append(node)
+    while q:
+        node=q.popleft()
+        print(node)
+        if node.left:q.append(node.left)
+        if node.right:q.append(node.right)
+level_order(a)
+
+
+#searching 
+def search(node,target):
+    if not node :
+        return False
+    if node==target:
+        return True
+    return search(node.left,target) or search(node.right,target)
+search(a,9)
