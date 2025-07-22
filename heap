@@ -1,0 +1,55 @@
+#build min heap
+a=[2,7,8,-1,-9,6,43,5,3]
+import heapq
+heapq.heapify(a)
+print(a)
+#heap push
+heapq.heappush(a,4)
+print(a)
+#heap pop 
+min=heapq.heappop(a)
+print(a,min)
+
+#heap sort  (nlogn)
+def heapsort(arr):
+    heapq.heapify(arr)
+    n=len(arr)
+    new_list=[0]*n
+    for i in range(n):
+        minn=heapq.heappop(arr)
+        new_list=minn
+    return new_list
+arr= [2,5,9,-5,-1,7,3,4]
+print(heapsort(arr))
+
+
+
+#heap push+pop
+heapq.heappushpop(a,99)
+
+#max heap (not a defined method)
+b=[-3,-9,8,6,5,3]
+n= len(b)
+for i in range(n):
+    b[i]=-b[i]
+    
+largest=-heapq.heappop(b)
+print(largest)
+
+#build heap from scratch
+c= [-5,4,2,1,7,9,3]
+heap=[]
+for x in c:
+    heapq.heappush(heap,x)
+    print(heap)
+    
+#putting tupples of items
+d= [3,3,3,4,5,3,5,2,4,5,3,4,5,2,5,2,4]
+from collections import Counter
+counter= Counter(d)
+print(counter)
+heap1= []
+for k,v in counter.items():
+    heapq.heappush(heap1,(v,k))
+print(heap1)
+    
